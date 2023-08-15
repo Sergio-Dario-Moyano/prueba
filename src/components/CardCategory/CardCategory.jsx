@@ -2,42 +2,53 @@ import "../CardCategory/CardCategory.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCar, faMobile, faShirt, faCouch, faBlender, faMicrophone } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom"
+// import { useEffect, useState } from "react"
 
 const iconText = [
   {
     icon: faCar,
     text: 'Autos, Motos y Otros',
-    category: 'cars',
+    category: 'CARS',
   },
   {
     icon: faMobile,
     text: 'Celulares y Teléfonos',
-    category: 'phone',
+    category: 'PHONE',
   },
   {
     icon: faShirt,
     text: 'Ropa y Accesorios',
-    category: 'clothes',
+    category: 'CLOTHES',
   },
   {
     icon: faCouch,
     text: 'Hogar, Muebles y Jardín',
-    category: 'homeCouch',
+    category: 'HOME',
   },
   {
     icon: faBlender,
     text: 'Electrodomésticos y Ac.',
-    category: 'blender',
+    category: 'EAC',
   },
   {
     icon: faMicrophone,
     text: 'Electrónica, Audio y Video',
-    category: 'microphone',
+    category: 'EAV',
   },
 ]
 const CardCategory = () => {
 
   // const id = useParams()
+
+  // const [newId, setNewId] = useState('')
+
+
+  // useEffect(() => {
+  //   console.log(id);
+  // }, [])
+
+
+
   return (
 
     <section className='container__category'>
