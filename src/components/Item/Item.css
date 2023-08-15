@@ -1,0 +1,62 @@
+
+
+.container__product {
+  background-color: #fff;
+  max-width: 1400px;
+  width: 100%;
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  border-bottom: 1px solid #aeaeae;
+}
+
+.container__descriptionImg {
+  width: 40%;
+}
+
+.container__img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.container__description {
+  width: 100%;
+}
+
+.container__description__title {
+  color: #333333;
+  font-size: 0.9rem;
+}
+
+.container__description__combo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+} 
+
+.container__description__price {
+  margin: 0.2rem 0;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #333333;
+}
+.container__description__discount {
+  font-size: 0.8rem;
+  color: #00A650;
+}
+
+.container__description__pay article {
+  line-height: 1.2;
+}
+
+.container__description__quotas {
+  font-size: 0.9rem;
+}
+
+.container__envio {
+  font-weight: 600;
+  color: #00A650;
+}

@@ -1,0 +1,23 @@
+.footer {
+  background-color: #fff;
+}
+
+.footer__card__content {
+  text-align: center;
+}
+
+.footer__card__icon {
+  font-size: 4rem;
+  color: #3483FA;
+  padding: 2rem 0;
+}
+
+.footer__card__title {
+  font-weight: 500;
+  color: #4B4B4B;
+}
+
+.footer__card__paragraph {
+  font-size: 0.85rem;
+  color: #737373;
+}

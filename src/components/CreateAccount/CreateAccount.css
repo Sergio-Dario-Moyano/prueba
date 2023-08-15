@@ -1,0 +1,45 @@
+
+.createAccount__container {
+  /* border: 2px solid red; */
+  background-color: #fff;
+  padding: 1rem 0;
+}
+
+.createAccount__container__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.createAccount__title {
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.createAccount__btn {
+  width: 90%;
+  height: 3rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  background-color: #3483FA;
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 0.4rem;
+}
+
+.createAccount__body {
+  text-align: center;
+}
+
+.createAccount__question {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.createAccount__getInto__link {
+  text-decoration: none;
+  margin-left: 0.5rem;
+  color: #3483FA;
+}
