@@ -2,7 +2,6 @@ import "../CardCategory/CardCategory.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCar, faMobile, faShirt, faCouch, faBlender, faMicrophone } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom"
-// import { useEffect, useState } from "react"
 
 const iconText = [
   {
@@ -37,18 +36,6 @@ const iconText = [
   },
 ]
 const CardCategory = () => {
-
-  // const id = useParams()
-
-  // const [newId, setNewId] = useState('')
-
-
-  // useEffect(() => {
-  //   console.log(id);
-  // }, [])
-
-
-
   return (
 
     <section className='container__category'>

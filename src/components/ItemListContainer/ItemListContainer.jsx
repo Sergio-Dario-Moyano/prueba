@@ -1,23 +1,12 @@
 
-import { useEffect, useState } from 'react';
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../firebase/firebaseConfig";
+import { useContext} from 'react';
 import ItemList from '../ItemList/ItemList';
+import { context } from '../Context/ContextProvider/ContexProvider';
 
 const ItemListContainer = () => {
-  const [items, setItems] = useState([])
 
-  const itemsCollection = collection(db, "allProducts")
-
-  const getData = async () => {
-      const queryResult = await getDocs(itemsCollection)
-      setItems(queryResult.docs.map((doc) => ({...doc.data(), id:doc.id})))
-  }
-
-  useEffect(() => {
-    getData()
-    // eslint-disable-next-line
-  }, [])
+const {items} = useContext(context)
+  
   return (
     <ItemList items={items} />
   )

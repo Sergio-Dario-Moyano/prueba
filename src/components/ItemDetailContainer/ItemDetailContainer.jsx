@@ -1,27 +1,20 @@
-
-import { useState, useEffect } from "react"
-import { getDoc, doc } from "firebase/firestore"
-import { db } from "../../firebase/firebaseConfig"
+import { useContext, useEffect } from "react"
 import ItemDetail from "../ItemDetail/ItemDetail"
+import { context } from "../Context/ContextProvider/ContexProvider"
+import { useParams } from "react-router-dom"
 
 const ItemDetailContainer = () => {
-  const [item, setItem] = useState([])
+  const { itemId } = useParams()
+  const { item, mostrarProd } = useContext(context)
 
-const getItem = async () => {
-
-  const docRef = doc(db, "celulares", "3b3wAyLXFkWBW4AJLg1F");
-  const docSnap = await getDoc(docRef);
-
-  docSnap.exists ? setItem({ ...docSnap.data() }) : <span>El producto no existe</span>
-  
-}
-
-useEffect(() => {
-  getItem()
-}, [])
+  useEffect(() => {
+    mostrarProd(itemId)
+  }, [itemId])
 
   return (
-    <ItemDetail item={item} />
+    <>
+      <ItemDetail item={item} />
+    </>
   )
 }
 

@@ -9,26 +9,26 @@ import CreateAccount from './components/CreateAccount/CreateAccount'
 import CardCategory from './components/CardCategory/CardCategory'
 import PaymentCard from './components/PaymentCard/PaymentCard'
 import Footer from './components/Footer/Footer'
-import Filtrar from './components/Filtrar/Filtrar'
+import { Filtrar } from './components/Filtrar/Filtrar'
+import { Provider } from './components/Context/ContextProvider/ContexProvider'
+// import Carro from './components/Carro/Carro'
 
 function App() {
 
-const homeText = ['inicio', 'texto1', 'texto2', 'texto3']
+  const homeText = ['inicio', 'texto1', 'texto2', 'texto3']
 
   return (
     <Container>
       <Navbar text={homeText} />
-      <Routes>
-        <Route exact path='/' element={<ItemListContainer />} />
-        <Route path='/item-detail-container' element={<ItemDetailContainer />} />
-        <Route path='/categoria/:id' element={<Filtrar />} />
-        {/* <Route path='/categoria/:id' /> */}
-          
-          
-         
-       
-      </Routes>
-        <CardCategory />
+      <Provider>
+        <Routes>
+          <Route exact path='/' element={<ItemListContainer />} />
+          <Route path='/itemDetailContainer/:itemId' element={<ItemDetailContainer />} />
+          <Route path='/categoria/:id' element={<Filtrar />} />
+        </Routes>
+      {/* <Carro /> */}
+      </Provider>
+      <CardCategory />
       <CreateAccount />
       <PaymentCard />
       <Footer />

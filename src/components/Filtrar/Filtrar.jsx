@@ -1,34 +1,27 @@
-import { useEffect, useState } from 'react';
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../firebase/firebaseConfig";
-import { useParams } from 'react-router-dom';
+
+import { useContext, useEffect, useState } from 'react';
 import ItemList from '../ItemList/ItemList';
+import { context } from '../Context/ContextProvider/ContexProvider';
+import { useParams } from 'react-router-dom';
 
-const Filtrar = () => {
-  const {id} = useParams()
-  const [items, setItems] = useState([])
+export const Filtrar = () => {
+  const { items } = useContext(context)
+  let { id } = useParams()
+  const [filtro, setFiltro] = useState([])
 
-  const itemsCollection = collection(db, "allProducts")
-
-  const getData = async () => {
-      const queryResult = await getDocs(itemsCollection)
-      const resQuery = queryResult.docs.map((item) => ({...item.data()}))
-      return setItems(resQuery.filter((item) => item.categoria == id))
-   
-      }
-  
+  const filter = () => {
+    const newFilter = items.filter((prod) => prod.categoria === id)
+    return setFiltro(newFilter)
+  }
 
   useEffect(() => {
-    // console.log(id);
-    getData()
+    filter()
     // eslint-disable-next-line
-  }, [])
+  }, [id])
+
   return (
     <>
-      {console.log(id)}
-      { items && <ItemList items={items} key={items.id} />}
+      {filtro && <ItemList items={filtro} />}
     </>
   )
 }
-
-export default Filtrar
