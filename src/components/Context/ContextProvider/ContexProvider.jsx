@@ -9,7 +9,7 @@ export const Provider = ({ children }) => {
 
   const [items, setItems] = useState([])
   const [item, setItem] = useState([])
-  let [cantidad, setCantidad] = useState(0)
+  const [cantidad, setCantidad] = useState(0)
   const [cart, setCart] = useState([])
 
   const itemsCollection = collection(db, "allProducts")

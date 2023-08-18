@@ -11,7 +11,7 @@ import PaymentCard from './components/PaymentCard/PaymentCard'
 import Footer from './components/Footer/Footer'
 import { Filtrar } from './components/Filtrar/Filtrar'
 import { Provider } from './components/Context/ContextProvider/ContexProvider'
-// import Carro from './components/Carro/Carro'
+import Carro from './components/Carro/Carro'
 
 function App() {
 
@@ -26,7 +26,7 @@ function App() {
           <Route path='/itemDetailContainer/:itemId' element={<ItemDetailContainer />} />
           <Route path='/categoria/:id' element={<Filtrar />} />
         </Routes>
-      {/* <Carro /> */}
+        <Carro />
       </Provider>
       <CardCategory />
       <CreateAccount />
