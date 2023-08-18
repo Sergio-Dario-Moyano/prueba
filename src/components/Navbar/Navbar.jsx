@@ -1,8 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHouse, faCartShopping, faBars } from '@fortawesome/free-solid-svg-icons'
+import { faHouse, faBars } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import "../Navbar/Navbar.css"
+import Carro from '../Carro/Carro'
 
 function Navbar() {
 
@@ -22,7 +23,7 @@ function Navbar() {
           <FontAwesomeIcon className='navbar__bars__icon' icon={faBars} />
         </article>
         <article className='navbar__cart'>
-          <FontAwesomeIcon className='navbar__cart__icon' icon={faCartShopping} />
+          <Carro />
         </article>
       </section>
     </nav>

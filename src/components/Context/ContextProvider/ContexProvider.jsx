@@ -9,7 +9,7 @@ export const Provider = ({ children }) => {
 
   const [items, setItems] = useState([])
   const [item, setItem] = useState([])
-  let [cantidad, setCantidad] = useState(0)
+  const [cantidad, setCantidad] = useState(0)
   const [cart, setCart] = useState([])
 
   const itemsCollection = collection(db, "allProducts")
@@ -50,14 +50,6 @@ export const Provider = ({ children }) => {
     console.log(item, cantidad)
   }
 
-  // const removeItem = (id) => {
-
-  // }
-
-  // const clear = () => {
-  //   setCart([])
-  // }
-
   const isInCart = (id) => {
     console.log(id);
     return cart.some(element => element.item.id === id)
@@ -70,7 +62,7 @@ export const Provider = ({ children }) => {
   }, [])
 
   return (
-    <context.Provider value={{ items, mostrarProd, item, sumar, restar, cantidad, addToCart }}>
+    <context.Provider value={{ items, mostrarProd, item, sumar, restar, cantidad, cart, addToCart }}>
       {children}
     </context.Provider>
   )
