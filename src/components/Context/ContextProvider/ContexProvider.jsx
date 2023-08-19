@@ -19,30 +19,27 @@ export const Provider = ({ children }) => {
     setItems(queryResult.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
   }
 
-  const mostrarProd = (itemId) => {
-    const getItem = async () => {
-      const docRef = doc(db, "allProducts", `${itemId}`);
-      const docSnap = await getDoc(docRef);
-      docSnap.exists ? setItem({ ...docSnap.data(), id: itemId }) : <span>El producto no existe</span>
-    }
-    getItem()
+  const getItem = async (itemId) => {
+    const docRef = doc(db, "allProducts", `${itemId}`);
+    const docSnap = await getDoc(docRef);
+    docSnap.exists ? setItem({ ...docSnap.data(), id: itemId }) : <span>El producto no existe</span>
   }
 
   const sumar = () => {
-    setCantidad( cantidad + 1)
+    setCantidad(cantidad + 1)
   }
   const restar = () => {
-    if(cantidad == 0) return
-    setCantidad( cantidad - 1)
+    if (cantidad == 0) return
+    setCantidad(cantidad - 1)
   }
 
   const addToCart = (item, cantidad) => {
-    if(isInCart(item.id)) {
+    if (isInCart(item.id)) {
       const indexItem = cart.findIndex(elem => elem.item.id === item.id)
-      cart[indexItem].cantidad = cart[indexItem].cantidad + cantidad 
+      cart[indexItem].cantidad = cart[indexItem].cantidad + cantidad
       setCart([...cart])
       console.log("existe en el carro");
-    }else {
+    } else {
       setCart([...cart, { item, cantidad }])
       console.log("NO existe en el carro");
     }
@@ -50,27 +47,19 @@ export const Provider = ({ children }) => {
     console.log(item, cantidad)
   }
 
-  // const removeItem = (id) => {
-
-  // }
-
-  // const clear = () => {
-  //   setCart([])
-  // }
-
   const isInCart = (id) => {
     console.log(id);
     return cart.some(element => element.item.id === id)
-  } 
+  }
 
   useEffect(() => {
-   
+
     getData()
     // eslint-disable-next-line
   }, [])
 
   return (
-    <context.Provider value={{ items, mostrarProd, item, sumar, restar, cantidad, addToCart }}>
+    <context.Provider value={{ items, getItem, item, sumar, restar, cantidad, addToCart }}>
       {children}
     </context.Provider>
   )
