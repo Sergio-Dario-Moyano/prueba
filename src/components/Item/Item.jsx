@@ -12,7 +12,7 @@ const Item = ({ item }) => {
   
   return (
     <>
-    <Link to={`/itemDetailContainer/${id}`}>
+    <Link to={`/itemDetailContainer/${id}`} className="container__item__link">
       <section className="container__product" >
         <article className="container__descriptionImg">
           <figure>

@@ -12,6 +12,10 @@
   border-bottom: 1px solid #aeaeae;
 }
 
+.container__item__link {
+  text-decoration: none;
+}
+
 .container__descriptionImg {
   width: 40%;
 }

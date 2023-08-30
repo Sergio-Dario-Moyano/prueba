@@ -4,12 +4,13 @@ import { db } from "../../../firebase/firebaseConfig";
 import PropTypes from "prop-types";
 
 export const context = createContext()
+const initialValue = 1
 
 export const Provider = ({ children }) => {
 
   const [items, setItems] = useState([])
   const [item, setItem] = useState([])
-  const [cantidad, setCantidad] = useState(0)
+  const [cantidad, setCantidad] = useState(initialValue)
   const [cart, setCart] = useState([])
 
   const itemsCollection = collection(db, "allProducts")
@@ -25,31 +26,28 @@ export const Provider = ({ children }) => {
     docSnap.exists ? setItem({ ...docSnap.data(), id: itemId }) : <span>El producto no existe</span>
   }
 
-  const sumar = () => {
-    setCantidad(cantidad + 1)
-  }
-  const restar = () => {
-    if (cantidad == 0) return
-    setCantidad(cantidad - 1)
-  }
-
   const addToCart = (item, cantidad) => {
+    console.log(cantidad);
     if (isInCart(item.id)) {
       const indexItem = cart.findIndex(elem => elem.item.id === item.id)
       cart[indexItem].cantidad = cart[indexItem].cantidad + cantidad
       setCart([...cart])
       console.log("existe en el carro");
     } else {
+      // setCart([...cart, { item: item, cantidad: cantidad }])
       setCart([...cart, { item, cantidad }])
       console.log("NO existe en el carro");
     }
-    setCantidad(0)
-    console.log(item, cantidad)
+    setCantidad(initialValue)
   }
 
   const isInCart = (id) => {
-    console.log(id);
     return cart.some(element => element.item.id === id)
+  }
+
+  const deleteItem = (id) => {
+    const newCart = cart.filter(item => item.item.id != id)
+    setCart(newCart)
   }
 
   useEffect(() => {
@@ -59,7 +57,7 @@ export const Provider = ({ children }) => {
   }, [])
 
   return (
-    <context.Provider value={{ items, getItem, item, sumar, restar, cantidad, addToCart }}>
+    <context.Provider value={{ items, getItem, cart, item, setCantidad, cantidad, addToCart, deleteItem, isInCart }}>
       {children}
     </context.Provider>
   )

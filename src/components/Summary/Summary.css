@@ -1,0 +1,26 @@
+.summary__container {
+  /* border: 1px solid red; */
+}
+
+.summary__contain__title,
+.summary__contain__paragraph {
+  background-color: #fff;
+  color: #b8b8b8;
+}
+
+.summary__contain__title {
+  border-radius: 0.2rem 0.2rem 0 0;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.summary__contain__paragraph {
+  border-radius: 0 0 0.2rem 0.2rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+}
+
+.summary__title {
+  font-size: 0.9rem;
+  font-weight: 300;
+}
