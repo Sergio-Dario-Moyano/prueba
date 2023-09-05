@@ -17,6 +17,10 @@
   margin: 1rem 0;
 }
 
+.addedToCart__position {
+  position: relative;
+}
+
 .addedToCart__figure {
   width: 70px;
   height: 70px;
@@ -29,6 +33,25 @@
   object-fit: cover;
   border-radius: 50%;
   border: 1px solid rgba(5, 5, 5, 0.5);
+}
+
+.addedToCart__content__check {
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  background-color: #00A650;
+  border-radius: 50%;
+  border: 0.5px solid  #000;
+  position: absolute;
+  bottom: 0;
+  right: -5px;
+}
+
+.addedToCart__check {
+  font-size: 1rem;
+  font-weight: bolder;
+  color: #fff;
 }
 
 .addedToCart__description {

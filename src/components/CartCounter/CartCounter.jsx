@@ -1,15 +1,29 @@
 import { useContext } from "react"
 import { context } from "../Context/ContextProvider/ContexProvider"
+import "../CartCounter/CartCounter.css"
 
 export const CartCounter = () => {
 
-  const { setCantidad, cantidad } = useContext(context)
+  
+  const { nuevaCantidad, setNuevaCantidad } = useContext(context)
+  
   return (
-    <div>
-      <h5>Cantidad de elementos a agregar</h5>
-      <button onClick={() => cantidad != 0 ? setCantidad(cantidad - 1) : 0} style={{ display: 'inline-block' }}>-</button>
-      <span>{cantidad}</span>
-      <button onClick={() => setCantidad(cantidad + 1)} style={{ display: 'inline-block' }}>+</button>
+
+
+    <div className="cartCounter__container">
+
+      <div className="cartCounter__content__title">
+        <h5 className="cartCounter__title">Editar productos</h5>
+      </div>
+     
+        <div className="cartCounter__content__btn">
+
+          <button className="cartCounter__btn cartCounter__suma" onClick={() => nuevaCantidad != 1 ? setNuevaCantidad(nuevaCantidad - 1) : null}>-</button>
+          <span className="cartCounter__number">{nuevaCantidad}</span>
+
+          <button className="cartCounter__btn cartCounter__resta" onClick={() => setNuevaCantidad(nuevaCantidad + 1)} >+</button>
+        </div>
+  
     </div>
   )
 }

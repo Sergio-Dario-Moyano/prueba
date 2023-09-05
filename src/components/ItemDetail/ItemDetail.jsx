@@ -4,9 +4,11 @@ import { context } from '../Context/ContextProvider/ContexProvider'
 import "../ItemDetail/ItemDetail.css"
 import { Link } from 'react-router-dom'
 
-const ItemDetail = ({ item }) => {
+// const ItemDetail = ({ item }) => {
+const ItemDetail = () => {
 
-  const { addToCart, setCantidad ,cantidad } = useContext(context)
+  const { addToCart, setCantidad ,cantidad, item } = useContext(context)
+  console.log(cantidad);
 
   let {
     marca,
@@ -29,6 +31,7 @@ const ItemDetail = ({ item }) => {
 
   const obtenerSeleccion = () => {
     let select = document.getElementById('cantidadProductos');
+    console.log(select.value);
     setCantidad(parseInt(select.value))  
   }
 
@@ -63,7 +66,7 @@ const ItemDetail = ({ item }) => {
         <span className='itemDetail__installments'>en {cuotas}x $ {precio / cuotas} </span>
         <span className='itemDetail__shipment'>{envio ? 'Envío gratis' : 'Llega mañana'}</span>
         <article className='itemDetail__select'>
-          <select className="itemDetail__amount__fees" id='cantidadProductos' defaultValue={1} onChange={() => obtenerSeleccion()}>
+          <select className="itemDetail__amount__fees" id='cantidadProductos' onChange={() => obtenerSeleccion()}>
             <option value="1">1 unidad</option>
             <option value="2">2 unidades</option>
             <option value="3">3 unidades</option>

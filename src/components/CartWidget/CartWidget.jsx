@@ -6,11 +6,11 @@ import { context } from '../Context/ContextProvider/ContexProvider'
 
 function CartWidget() {
   const { cart } = useContext(context)
-  const res = cart.reduce((accumulator, currentValue) => accumulator + currentValue.cantidad, 0)
+  
   return (
     <>
       <Link to={'/cart'}><FontAwesomeIcon className='navbar__cart__icon' icon={faCartShopping} /></Link>
-      <span>{res != 0 ? res : null}</span>
+      <span>{cart.length != 0 ? cart.length : null}</span>
     </>
   )
 }

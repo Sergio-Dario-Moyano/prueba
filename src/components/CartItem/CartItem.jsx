@@ -1,26 +1,46 @@
 import PropTypes from 'prop-types'
 import { useContext } from 'react'
 import { context } from '../Context/ContextProvider/ContexProvider'
+import "../CartItem/CartItem.css"
+import { CartCounter } from '../CartCounter/CartCounter'
 
 function CartItem({ cart }) {
+  // console.log(cart);
   const { deleteItem } = useContext(context)
-  const { item } = cart
+  const { item, cantidad } = cart
+  // console.log(cantidad);
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '2rem' }}>
-      <div style={{ width: '20%' }}>
-        <img src={`${item.imagen}`} style={{ width: '100px', height: '100px', objectFit: 'cover' }} />
+    <section className='cartItem__container'>
+
+      <div className='cartItem__top'>
+        <figure className='cartItem__content__img'>
+          <img src={`${item.imagen}`} className='cartItem__img' />
+        </figure>
+
+        <div className='cartItem__down'>
+          <div className='cartItem__titleProduct'>
+            {item.titleProduct}
+          </div>
+          <div className='cartItem__content__btn'>
+            <button className='cartItem__btn__delete' onClick={() => deleteItem(item.id)}>Eliminar producto</button>
+          </div>
+        </div>
       </div>
-      <div style={{ width: '80%' }}>
-        <div>{item.caracteristicas}</div>
-        <div>{item.descripcion}</div>
-        <div>{item.precio}</div>
-        <div>{item.caracteristicas}</div>
+
+      <div className='cartItem__content__info'>
+
+        <div className='cartItem__content__cartContent'>
+          <CartCounter />
+        </div>
+
+        <div className='cartItem__content__price'>
+          <span>Precio: </span>
+          <span  className='cartItem__price'>$ {item.precio * cantidad}</span>
+        </div>
+
       </div>
-      <div>
-        <button onClick={() => deleteItem(item.id)}>Delete Item</button>
-      </div>
-    </div>
+    </section>
   )
 }
 
