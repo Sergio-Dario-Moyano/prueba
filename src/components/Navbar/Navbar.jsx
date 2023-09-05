@@ -3,9 +3,9 @@ import { faHouse, faBars } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import "../Navbar/Navbar.css"
-import Carro from '../Carro/Carro'
+// import Carro  from "../Carro/Carro"
 
-function Navbar() {
+ const Navbar = ( ) => {
 
   return (
     <nav className='navbar__container'>
@@ -23,7 +23,7 @@ function Navbar() {
           <FontAwesomeIcon className='navbar__bars__icon' icon={faBars} />
         </article>
         <article className='navbar__cart'>
-          <Carro />
+          {/* <Carro /> */}
         </article>
       </section>
     </nav>
@@ -32,6 +32,6 @@ function Navbar() {
 
 Navbar.propTypes = {
   text: PropTypes.array
-}
+}   
 
 export default Navbar

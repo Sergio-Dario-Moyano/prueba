@@ -9,7 +9,7 @@ export const Provider = ({ children }) => {
 
   const [items, setItems] = useState([])
   const [item, setItem] = useState([])
-  const [cantidad, setCantidad] = useState(0)
+  let [cantidad, setCantidad] = useState(0)
   const [cart, setCart] = useState([])
 
   const itemsCollection = collection(db, "allProducts")
@@ -25,26 +25,25 @@ export const Provider = ({ children }) => {
     docSnap.exists ? setItem({ ...docSnap.data(), id: itemId }) : <span>El producto no existe</span>
   }
 
-  const sumar = () => {
-    setCantidad(cantidad + 1)
-  }
-  const restar = () => {
-    if (cantidad == 0) return
-    setCantidad(cantidad - 1)
-  }
+  // const sumar = () => {
+  //   setCantidad(cantidad = cantidad + 1)
+  // }
+  // const restar = () => {
+  //   if (cantidad == 0) return
+  //   setCantidad(cantidad = cantidad - 1)
+  // }
 
   const addToCart = (item, cantidad) => {
     if (isInCart(item.id)) {
       const indexItem = cart.findIndex(elem => elem.item.id === item.id)
       cart[indexItem].cantidad = cart[indexItem].cantidad + cantidad
       setCart([...cart])
-      console.log("existe en el carro");
+      console.log("Modificando solo la propiedad cantidad del producto");
     } else {
       setCart([...cart, { item, cantidad }])
-      console.log("NO existe en el carro");
+      console.log("Agregado por primera vez");
     }
     setCantidad(0)
-    console.log(item, cantidad)
   }
 
   const isInCart = (id) => {
@@ -59,7 +58,7 @@ export const Provider = ({ children }) => {
   }, [])
 
   return (
-    <context.Provider value={{ items, getItem, item, sumar, restar, cantidad, addToCart }}>
+    <context.Provider value={{ items, getItem, item, cart, cantidad, setCantidad, addToCart }}>
       {children}
     </context.Provider>
   )
