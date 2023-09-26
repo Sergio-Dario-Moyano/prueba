@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import "../Navbar/Navbar.css"
 import CartWidget from '../CartWidget/CartWidget'
-
+import InputSearch from '../InputSearch/InputSearch'
 
 function Navbar() {
 
@@ -15,7 +15,8 @@ function Navbar() {
           <Link to={'/'}><FontAwesomeIcon className='navbar__home__icon' icon={faHouse} /></Link>
         </div>
         <article className='navbar__input'>
-          <input type="text" className='navbar__input__search' placeholder='Estoy buscando...' />
+          {/* <input type="text" className='navbar__input__search' placeholder='Estoy buscando...' /> */}
+          <InputSearch />
         </article>
       </section>
 

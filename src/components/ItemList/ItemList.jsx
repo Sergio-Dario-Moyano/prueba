@@ -2,6 +2,7 @@ import Item from "../Item/Item"
 import PropTypes from "prop-types"
 
 const ItemList = ({ items }) => {
+  console.log(items);
   
   return (
     <>

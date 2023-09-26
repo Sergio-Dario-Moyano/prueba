@@ -6,7 +6,8 @@ import Summary from '../Summary/Summary';
 
 const Cart = () => {
 
-  const { cart } = useContext(context)
+  const  {cart}  = useContext(context)
+  // console.log(cart);
 
   return (
     <div className='cart__container'>

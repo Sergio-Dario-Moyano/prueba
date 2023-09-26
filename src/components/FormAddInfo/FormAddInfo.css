@@ -1,0 +1,9 @@
+#form {
+  padding: 2rem;
+}
+#form input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0.5rem 0;
+}

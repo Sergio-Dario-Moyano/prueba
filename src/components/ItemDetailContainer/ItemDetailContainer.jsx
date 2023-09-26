@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom"
 const ItemDetailContainer = () => {
   const { itemId } = useParams()
   const { getItem } = useContext(context)
-  // const { item, getItem } = useContext(context)
 
   useEffect(() => {
     getItem(itemId)
@@ -15,7 +14,6 @@ const ItemDetailContainer = () => {
   return (
     <>
       <ItemDetail />
-      {/* <ItemDetail item={item} /> */}
     </>
   )
 }

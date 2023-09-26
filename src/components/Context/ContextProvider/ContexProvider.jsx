@@ -15,9 +15,9 @@ export const Provider = ({ children }) => {
   const [cart, setCart] = useState([])
   const [sumaTotal, setSumaTotal] = useState(0)
   const [total, setTotal] = useState(0)
-  const [nuevaCantidad, setNuevaCantidad] = useState(cantidadItems)
-
-
+  const [nuevaCantidad, setNuevaCantidad] = useState(1)
+  const [search, setSearch] = useState([])
+  
   const itemsCollection = collection(db, "allProducts")
 
   const getData = async () => {
@@ -32,20 +32,17 @@ export const Provider = ({ children }) => {
   }
 
   const addToCart = (item, cantidad) => {
-    console.log(cantidad);
-    console.log(nuevaCantidad);
     if (isInCart(item.id)) {
       const indexItem = cart.findIndex(elem => elem.item.id === item.id)
-      cart[indexItem].cantidad = cart[indexItem].cantidad + cantidad
+      cart[indexItem].cantidad = cantidad
       setCart([...cart])
-      console.log("existe en el carro");
-      // console.log(cart);
     } else {
       setCart([...cart, { item, cantidad }])
-      console.log("NO existe en el carro");
-      // console.log(cart);
     }
-    setCantidad(initialValue)
+  }
+   
+  const onAdd = (nuevaCantidad) => {
+   addToCart(item, nuevaCantidad)
   }
 
   const isInCart = (id) => {
@@ -58,7 +55,6 @@ export const Provider = ({ children }) => {
   }
 
   const cantidadDeItems = () => {
-    console.log(cart);
     const res = cart.reduce((accumulator, currentValue) => accumulator + currentValue.cantidad, 0)
     setCantidadItems(res)
   }
@@ -70,7 +66,6 @@ export const Provider = ({ children }) => {
 
 
   useEffect(() => {
-
     getData()
     cantidadDeItems()
     sumarCarro()
@@ -98,7 +93,10 @@ export const Provider = ({ children }) => {
         cantidadItems,
         setCantidadItems,
         nuevaCantidad,
-        setNuevaCantidad
+        setNuevaCantidad,
+        onAdd, 
+        search,
+        setSearch,
       }
     }>
       {children}

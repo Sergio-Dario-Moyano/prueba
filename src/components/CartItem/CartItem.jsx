@@ -5,19 +5,15 @@ import "../CartItem/CartItem.css"
 import { CartCounter } from '../CartCounter/CartCounter'
 
 function CartItem({ cart }) {
-  // console.log(cart);
   const { deleteItem } = useContext(context)
   const { item, cantidad } = cart
-  // console.log(cantidad);
 
   return (
-    <section className='cartItem__container'>
-
+    <section className='cartItem__container' >
       <div className='cartItem__top'>
         <figure className='cartItem__content__img'>
           <img src={`${item.imagen}`} className='cartItem__img' />
         </figure>
-
         <div className='cartItem__down'>
           <div className='cartItem__titleProduct'>
             {item.titleProduct}
@@ -27,18 +23,14 @@ function CartItem({ cart }) {
           </div>
         </div>
       </div>
-
       <div className='cartItem__content__info'>
-
         <div className='cartItem__content__cartContent'>
-          <CartCounter />
+          <CartCounter item={item} cantidad={cantidad} />
         </div>
-
         <div className='cartItem__content__price'>
           <span>Precio: </span>
-          <span  className='cartItem__price'>$ {item.precio * cantidad}</span>
+          <span className='cartItem__price'>$ {item.precio * cantidad}</span>
         </div>
-
       </div>
     </section>
   )

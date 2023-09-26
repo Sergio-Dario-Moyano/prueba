@@ -1,10 +1,9 @@
-// Import the functions you need from the SDKs you need
+
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "@firebase/firestore";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { ref, uploadBytes, getStorage, getDownloadURL } from "firebase/storage";
+import { v4 } from "uuid";
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyA0kBRRWpQGJd8uSgdNmFC26vRURjmkwto",
   authDomain: "pruebadb-c2aa7.firebaseapp.com",
@@ -15,6 +14,15 @@ const firebaseConfig = {
   appId: "1:688636218127:web:a2695574a8bfd2d5c18c7a"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app)
+
+//funcion para agregar iamgenes al Storage
+export const storage = getStorage(app)
+
+export async function uploadFile(file) {
+  const storageRef = ref( storage, v4())
+  await uploadBytes(storageRef, file)
+  const urlImage = await getDownloadURL(storageRef)
+  return urlImage
+}

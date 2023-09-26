@@ -5,35 +5,37 @@ import "../Item/Item.css"
 import { Link } from "react-router-dom"
 
 const Item = ({ item }) => {
+  // console.log(item);
 
   // const { mostrarProd } = useContext(context)
 
   let { imagen, precio, descuento, cuotas, descripcion, envio, id } = item
-  
+  // console.log(imagen);
+
   return (
-    <>
-    <Link to={`/itemDetailContainer/${id}`} className="container__item__link">
-      <section className="container__product" >
-        <article className="container__descriptionImg">
-          <figure>
-            <img src={imagen} alt={descripcion} className="container__img" />
-          </figure>
-        </article>
-        <section className="container__description">
-          <article className="container__description__title">{descripcion}</article>
-          <article className="container__description__combo">
-            <span className="container__description__price"> $ {precio}</span>
-            <span className="container__description__discount">{descuento}% OFF</span>
+    <section className="section__content__product">
+      <Link to={`/itemDetailContainer/${id}`} className="container__item__link">
+        <section className="container__product" >
+          <article className="container__descriptionImg">
+            <figure>
+              <img src={imagen} alt={descripcion} className="container__img" />
+            </figure>
           </article>
-          <section className="container__description__pay">
-            <article className="container__description__quotas">{cuotas}X {precio / cuotas}</article>
-            <article className="container__description__shipment">{envio}</article>
-            <article className="container__envio">{envio ? 'Envío gratis' : 'Llega mañana'}</article>
+          <section className="container__description">
+            <article className="container__description__title">{descripcion}</article>
+            <article className="container__description__combo">
+              <span className="container__description__price"> $ {precio}</span>
+              <span className="container__description__discount">{descuento}% OFF</span>
+            </article>
+            <section className="container__description__pay">
+              <article className="container__description__quotas">{cuotas}X {precio / cuotas}</article>
+              <article className="container__description__shipment">{envio}</article>
+              <article className="container__envio">{envio ? 'Envío gratis' : 'Llega mañana'}</article>
+            </section>
           </section>
         </section>
-      </section>
-    </Link>
-    </>
+      </Link>
+    </section>
   )
 }
 

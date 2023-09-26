@@ -1,4 +1,6 @@
-
+.section__content__product {
+  padding: 1rem;
+}
 
 .container__product {
   background-color: #fff;

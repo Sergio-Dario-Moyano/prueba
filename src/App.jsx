@@ -12,6 +12,7 @@ import { Filtrar } from './components/Filtrar/Filtrar'
 import { Provider } from './components/Context/ContextProvider/ContexProvider'
 import Cart from './components/Cart/Cart'
 import AddedToCart from './components/addedToCart/AddedToCart'
+import BuyNow from './components/BuyNow/BuyNow'
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
           <Route path='/categoria/:id' element={<Filtrar />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/addedToCart' element={<AddedToCart />} />
+          <Route path='/BuyNow' element={<BuyNow />} />
         </Routes>
       </Provider>
       <CardCategory />

@@ -10,7 +10,7 @@ import Summary from '../Summary/Summary'
 function AddedToCart() {
 
   const { cart } = useContext(context)
-  console.log(cart);
+  // console.log(cart);
 
   return (
     <section className="addedToCart__content">

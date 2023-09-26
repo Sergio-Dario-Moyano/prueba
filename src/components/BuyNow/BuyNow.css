@@ -1,0 +1,59 @@
+
+.buyNow__container {
+  background-color: #EDEDED;
+  padding: 0 1rem;
+}
+
+.buyNow__container__title {
+  margin-top: 0.5rem;
+}
+
+.buyNow__title {
+  font-weight: 400;
+  letter-spacing: 0.03rem;
+}
+
+.buyNow__container__subTitle {
+  margin: 2rem 0 0.5rem;
+}
+
+.buyNow__subTitle {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.buyNow__container__cards {
+  border: 1px solid #c7c7c7;
+  background-color: #fff;
+}
+
+.buyNow__container__card {
+  border-bottom: 1px solid #c7c7c7;
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 1rem;
+} 
+
+.buyNow__container__card:last-child {
+  border-bottom: none;
+}
+
+.buyNow__card {
+  color: steelblue;
+}
+
+
+.buyNow__card__text {
+  font-size: 0.8rem;
+}
+
+.buyNow__shipment__text {
+  font-size: 0.7rem;
+  color: #12bc12;
+}
+
+.buyNow__container__radio,
+.buyNow__container__logo,
+.buyNow__container__back {
+  width: 10%;
+}

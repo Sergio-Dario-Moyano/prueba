@@ -4,11 +4,10 @@ import { context } from '../Context/ContextProvider/ContexProvider'
 import "../ItemDetail/ItemDetail.css"
 import { Link } from 'react-router-dom'
 
-// const ItemDetail = ({ item }) => {
+
 const ItemDetail = () => {
 
-  const { addToCart, setCantidad ,cantidad, item } = useContext(context)
-  console.log(cantidad);
+  const { addToCart, setCantidad, cantidad, item } = useContext(context)
 
   let {
     marca,
@@ -31,8 +30,7 @@ const ItemDetail = () => {
 
   const obtenerSeleccion = () => {
     let select = document.getElementById('cantidadProductos');
-    console.log(select.value);
-    setCantidad(parseInt(select.value))  
+    setCantidad(parseInt(select.value))
   }
 
   return (
@@ -77,7 +75,7 @@ const ItemDetail = () => {
         </article>
       </article>
       <article>
-        <button className='itemDetail__btn__buy'>Comprar ahora</button>
+        <Link to={'/BuyNow/'} className='itemDetail__btn__buy' onClick={() => addToCart(item, cantidad)} >Comprar ahora</Link>
       </article>
       <article>
         <Link to={'/addedToCart/'} className='itemDetail__btn__cart' onClick={() => addToCart(item, cantidad)}>
@@ -89,9 +87,9 @@ const ItemDetail = () => {
         <ul className='itemDetail__list'>
           {
             caracteristicasGenerales ?
-           caracteristicasGenerales.map((item, index) => (<li key={index} className='itemDetail__list__items'>{item}</li>))
-          : 
-          null
+              caracteristicasGenerales.map((item, index) => (<li key={index} className='itemDetail__list__items'>{item}</li>))
+              :
+              null
           }
         </ul>
       </article>
@@ -99,7 +97,6 @@ const ItemDetail = () => {
         <h4 className='itemDetail__description__title'>Descripción</h4>
         <p className='itemDetail__description__paragraph'>{descripcionGeneral}</p>
       </article>
-
     </section >
   )
 }
