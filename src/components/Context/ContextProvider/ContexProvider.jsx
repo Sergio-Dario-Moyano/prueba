@@ -10,8 +10,12 @@ export const Provider = ({ children }) => {
 
   const [items, setItems] = useState([])
   const [item, setItem] = useState([])
+<<<<<<< HEAD
   const [cantidad, setCantidad] = useState(initialValue)
   const [cantidadItems, setCantidadItems] = useState(0)
+=======
+  let [cantidad, setCantidad] = useState(0)
+>>>>>>> ramaNotebook
   const [cart, setCart] = useState([])
   const [sumaTotal, setSumaTotal] = useState(0)
   const [total, setTotal] = useState(0)
@@ -31,6 +35,17 @@ export const Provider = ({ children }) => {
     docSnap.exists ? setItem({ ...docSnap.data(), id: itemId }) : <span>El producto no existe</span>
   }
 
+<<<<<<< HEAD
+=======
+  // const sumar = () => {
+  //   setCantidad(cantidad = cantidad + 1)
+  // }
+  // const restar = () => {
+  //   if (cantidad == 0) return
+  //   setCantidad(cantidad = cantidad - 1)
+  // }
+
+>>>>>>> ramaNotebook
   const addToCart = (item, cantidad) => {
     console.log(cantidad);
     console.log(nuevaCantidad);
@@ -38,6 +53,7 @@ export const Provider = ({ children }) => {
       const indexItem = cart.findIndex(elem => elem.item.id === item.id)
       cart[indexItem].cantidad = cart[indexItem].cantidad + cantidad
       setCart([...cart])
+<<<<<<< HEAD
       console.log("existe en el carro");
       // console.log(cart);
     } else {
@@ -46,6 +62,14 @@ export const Provider = ({ children }) => {
       // console.log(cart);
     }
     setCantidad(initialValue)
+=======
+      console.log("Modificando solo la propiedad cantidad del producto");
+    } else {
+      setCart([...cart, { item, cantidad }])
+      console.log("Agregado por primera vez");
+    }
+    setCantidad(0)
+>>>>>>> ramaNotebook
   }
 
   const isInCart = (id) => {
@@ -79,6 +103,7 @@ export const Provider = ({ children }) => {
   }, [cart])
 
   return (
+<<<<<<< HEAD
     <context.Provider value={
       {
         items,
@@ -101,6 +126,9 @@ export const Provider = ({ children }) => {
         setNuevaCantidad
       }
     }>
+=======
+    <context.Provider value={{ items, getItem, item, cart, cantidad, setCantidad, addToCart }}>
+>>>>>>> ramaNotebook
       {children}
     </context.Provider>
   )

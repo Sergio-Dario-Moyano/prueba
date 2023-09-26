@@ -4,26 +4,16 @@ import "../CartCounter/CartCounter.css"
 
 export const CartCounter = () => {
 
-  
-  const { nuevaCantidad, setNuevaCantidad } = useContext(context)
-  
+
+export const CartCounter= () => {
+
+  const { sumar, restar, cantidad } = useContext(context)
   return (
-
-
-    <div className="cartCounter__container">
-
-      <div className="cartCounter__content__title">
-        <h5 className="cartCounter__title">Editar productos</h5>
-      </div>
-     
-        <div className="cartCounter__content__btn">
-
-          <button className="cartCounter__btn cartCounter__suma" onClick={() => nuevaCantidad != 1 ? setNuevaCantidad(nuevaCantidad - 1) : null}>-</button>
-          <span className="cartCounter__number">{nuevaCantidad}</span>
-
-          <button className="cartCounter__btn cartCounter__resta" onClick={() => setNuevaCantidad(nuevaCantidad + 1)} >+</button>
-        </div>
-  
+    <div>
+      <h5>Cantidad de elementos a agregar</h5>
+      <button onClick={() => restar()} style={{display: 'inline-block'}}>-</button>
+      <span>{ cantidad }</span>
+      <button onClick={() => sumar()} style={{display: 'inline-block'}}>+</button>
     </div>
   )
 }
